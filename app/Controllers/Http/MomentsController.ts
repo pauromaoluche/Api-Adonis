@@ -44,7 +44,8 @@ export default class MomentsController {
     }
 
     public async index() {
-        const moment = await Moment.all()
+        /* preload, tras os dados relacionados se tiver, dentro do preload, colocar o nome da outras tabela */
+        const moment = await Moment.query().preload('comments')
 
         return {
             data: moment,
@@ -53,6 +54,9 @@ export default class MomentsController {
 
     public async show({ params }: HttpContextContract) {
         const moment = await Moment.findOrFail(params.id)
+
+        /* O load faz a mesma coisa que o preload */
+        await moment.load('comments')
 
         return {
             data: moment,
