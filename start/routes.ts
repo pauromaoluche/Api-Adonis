@@ -29,4 +29,5 @@ Route.group(() => {
   /*  Route.post('/moments', 'MomentsController.store') */
   /* Com resource ele cria todas as rotas basicas de uma aplicação */
   Route.resource('/moments', 'MomentsController').apiOnly()
+  Route.resource('/moments/:momentId/comments', 'CommentsController').apiOnly()
 }).prefix('/api')
