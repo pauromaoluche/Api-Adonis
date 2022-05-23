@@ -24,4 +24,9 @@ Route.group(() => {
   Route.get('/', async () => {
     return { hello: 'world' }
   })
+
+  /* eu passso o nome da rota que é /moments, depois, o controller dela, e . função */
+  /*  Route.post('/moments', 'MomentsController.store') */
+  /* Com resource ele cria todas as rotas basicas de uma aplicação */
+  Route.resource('/moments', 'MomentsController').apiOnly()
 }).prefix('/api')
