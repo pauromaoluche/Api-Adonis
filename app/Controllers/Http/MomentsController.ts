@@ -12,7 +12,7 @@ export default class MomentsController {
 
     /* validação da imagem */
     private validationOptions = {
-        type: ["image"],
+        types: ['image'],
         size: '2mb',
     }
 
